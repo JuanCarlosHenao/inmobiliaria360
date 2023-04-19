@@ -4,3 +4,9 @@ spring:
     url: jdbc:mysql://localhost:3306/inmobiliaria
     username: root
     password: 123456
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+appDescription: 'Inmobiliaria 360 JCHL'
+appVersion: '1.0.0'
