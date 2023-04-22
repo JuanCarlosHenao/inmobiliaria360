@@ -1,4 +1,4 @@
-package com.tesis.inmobiliaria360.dominio;
+package com.tesis.inmobiliaria360.dominio.service;
 
 
 import com.tesis.inmobiliaria360.infraestructura.output.entity.InmuebleEntity;
@@ -45,12 +45,12 @@ public class InmuebleService {
     public InmuebleEntity save(InmuebleEntity inmuebleEntity){
         InmuebleEntity inmuebleEntityAGuardar = new InmuebleEntity(
                 inmuebleEntity.getId(),
-                inmuebleEntity.getNombre(),
-                inmuebleEntity.getPrecio(),
-                inmuebleEntity.getDescripcion(),
-                inmuebleEntity.getImagen(),
-                LocalDateTime.now(),
-                null
+                inmuebleEntity.getName(),
+                inmuebleEntity.getPrice(),
+                inmuebleEntity.getDescription(),
+                inmuebleEntity.getImage(),
+                LocalDateTime.now()
+//                inmuebleEntity.getEscenaEntityList()
 
         );
         return inmuebleRepository.save(inmuebleEntityAGuardar);

@@ -1,7 +1,6 @@
 package com.tesis.inmobiliaria360.infraestructura.rest;
 
-import com.tesis.inmobiliaria360.aplicacion.EscenaDto;
-import com.tesis.inmobiliaria360.dominio.InmuebleService;
+import com.tesis.inmobiliaria360.dominio.service.InmuebleService;
 import com.tesis.inmobiliaria360.infraestructura.output.entity.InmuebleEntity;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -10,6 +9,8 @@ import java.net.URI;
 import java.util.List;
 import java.util.Optional;
 
+
+@CrossOrigin(origins = "http://localhost:8080")
 @RestController
 @RequestMapping("/inmobiliaria360")
 public class InmuebleController {

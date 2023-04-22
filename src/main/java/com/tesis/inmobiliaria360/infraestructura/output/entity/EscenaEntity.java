@@ -1,9 +1,11 @@
 package com.tesis.inmobiliaria360.infraestructura.output.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
 import javax.persistence.criteria.Fetch;
+import java.util.List;
 
 
 @Entity
@@ -16,7 +18,9 @@ public class EscenaEntity {
     @Column(name = "escena_id", nullable = false)
     private Long id;
 
-    @ManyToOne(fetch = FetchType.LAZY)  //porque tengo muchas escenas para una propuedad
+//    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "inmueble_id")//porque tengo muchas escenas para una propuedad
     private InmuebleEntity inmuebleEntity;
     @Column(name= "title", nullable = false)
     private String title;
@@ -25,20 +29,31 @@ public class EscenaEntity {
 
     @Column(name= "pitch", nullable = false)
     private Double pitch;
+
     @Column(name= "yaw", nullable = false)
     private Double yaw;
+
+
+//    @Column(name= "inmueble_id", nullable = false)
+//    private Long inmueble_id;
+
+
+//    @OneToMany(cascade = CascadeType.ALL) // para que cada cambio en el inmueble me actualice las escenas
+//    @JoinColumn(name="hotspot_id")
+//    private List<HotSpotEntity> hotSpotEntityList;
 
     public EscenaEntity(){
         super();
     }
 
-    public EscenaEntity(Long id, InmuebleEntity inmuebleEntity, String title, String image, Double pitch, Double yaw) {
+    public EscenaEntity(Long id, String title, String image, Double pitch, Double yaw, List<HotSpotEntity> hotSpotEntityList) {
         this.id = id;
-        this.inmuebleEntity = inmuebleEntity;
+//        this.inmuebleEntity = inmuebleEntity;
         this.title = title;
         this.image = image;
         this.pitch = pitch;
         this.yaw = yaw;
+//        this.hotSpotEntityList = hotSpotEntityList;
     }
 
     public Long getId() {
@@ -49,6 +64,7 @@ public class EscenaEntity {
         this.id = id;
     }
 
+    @JsonBackReference
     public InmuebleEntity getInmuebleEntity() {
         return inmuebleEntity;
     }
@@ -89,5 +105,19 @@ public class EscenaEntity {
         this.yaw = yaw;
     }
 
+//    public List<HotSpotEntity> getHotSpotEntityList() {
+//        return hotSpotEntityList;
+//    }
+//
+//    public void setHotSpotEntityList(List<HotSpotEntity> hotSpotEntityList) {
+//        this.hotSpotEntityList = hotSpotEntityList;
+//    }
 
+//    public Long getInmueble_id() {
+//        return inmueble_id;
+//    }
+//
+//    public void setInmueble_id(Long inmueble_id) {
+//        this.inmueble_id = inmueble_id;
+//    }
 }

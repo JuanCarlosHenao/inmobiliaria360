@@ -1,6 +1,6 @@
 package com.tesis.inmobiliaria360.infraestructura.rest;
 
-import com.tesis.inmobiliaria360.dominio.CloudinaryService;
+import com.tesis.inmobiliaria360.dominio.service.CloudinaryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

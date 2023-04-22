@@ -1,5 +1,6 @@
 package com.tesis.inmobiliaria360.infraestructura.output.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import org.hibernate.annotations.BatchSize;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
@@ -17,19 +18,19 @@ public class InmuebleEntity {
     @Column(name = "inmueble_id", nullable = false)
     private Long id;
 
-    @Column(name = "nombre",nullable = false)
+    @Column(name = "name",nullable = false)
     //    @Size(max=100)
 //    @BatchSize(size = 100)
-    private String nombre;
-    @Column(name = "precio",nullable = false)
+    private String name;
+    @Column(name = "price",nullable = false)
     //    @Size(max=100)
-    private Double precio;
-    @Column(name = "descripcion",nullable = false)
+    private Double price;
+    @Column(name = "description",nullable = false)
     //    @Size(max=300)
-    private String descripcion;
-    @Column(name = "imagen",nullable = false)
+    private String description;
+    @Column(name = "image",nullable = false)
     //    @Size(max=100)
-    private String imagen;
+    private String image;
     @CreatedDate
     @Column(name = "createdDate",nullable = false)
     //    @Size(max=100)
@@ -42,14 +43,14 @@ public class InmuebleEntity {
     public InmuebleEntity(){
         super();
     }
-    public InmuebleEntity(Long id, String nombre, Double precio, String descripcion, String imagen, LocalDateTime createdDate, List<EscenaEntity> escenaEntityList) {
+
+    public InmuebleEntity(Long id, String name, Double price, String description, String image, LocalDateTime createdDate) {
         this.id = id;
-        this.nombre = nombre;
-        this.precio = precio;
-        this.descripcion = descripcion;
-        this.imagen = imagen;
+        this.name = name;
+        this.price = price;
+        this.description = description;
+        this.image = image;
         this.createdDate = createdDate;
-        this.escenaEntityList = escenaEntityList;
     }
 
     public Long getId() {
@@ -60,36 +61,36 @@ public class InmuebleEntity {
         this.id = id;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getName() {
+        return name;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public Double getPrecio() {
-        return precio;
+    public Double getPrice() {
+        return price;
     }
 
-    public void setPrecio(Double preci) {
-        this.precio = preci;
+    public void setPrice(Double price) {
+        this.price = price;
     }
 
-    public String getDescripcion() {
-        return descripcion;
+    public String getDescription() {
+        return description;
     }
 
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
-    public String getImagen() {
-        return imagen;
+    public String getImage() {
+        return image;
     }
 
-    public void setImagen(String imagen) {
-        this.imagen = imagen;
+    public void setImage(String image) {
+        this.image = image;
     }
 
     public LocalDateTime getCreatedDate() {
@@ -99,6 +100,7 @@ public class InmuebleEntity {
     public void setCreatedDate(LocalDateTime createdDate) {
         this.createdDate = createdDate;
     }
+
 
     public List<EscenaEntity> getEscenaEntityList() {
         return escenaEntityList;
