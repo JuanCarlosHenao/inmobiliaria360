@@ -31,7 +31,7 @@ public class EscenaService {
     public EscenaEntity save(EscenaEntity escenaEntity) {
         EscenaEntity escenaEntityAGuardar = new EscenaEntity(
                 escenaEntity.getId(),
-//                escenaEntity.getInmuebleEntity(),
+                escenaEntity.getInmuebleEntity(),
                 escenaEntity.getImage(),
                 escenaEntity.getTitle(),
                 escenaEntity.getPitch(),

@@ -19,7 +19,8 @@ public class EscenaEntity {
     private Long id;
 
 //    @ManyToOne(fetch = FetchType.LAZY)
-    @ManyToOne(fetch = FetchType.LAZY)
+//    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "inmueble_id")//porque tengo muchas escenas para una propuedad
     private InmuebleEntity inmuebleEntity;
     @Column(name= "title", nullable = false)
@@ -46,9 +47,9 @@ public class EscenaEntity {
         super();
     }
 
-    public EscenaEntity(Long id, String title, String image, Double pitch, Double yaw, List<HotSpotEntity> hotSpotEntityList) {
+    public EscenaEntity(Long id, InmuebleEntity inmuebleEntity, String title, String image, Double pitch, Double yaw, List<HotSpotEntity> hotSpotEntityList) {
         this.id = id;
-//        this.inmuebleEntity = inmuebleEntity;
+        this.inmuebleEntity = inmuebleEntity;
         this.title = title;
         this.image = image;
         this.pitch = pitch;

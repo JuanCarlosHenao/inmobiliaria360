@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
-@EntityListeners(AuditingEntityListener.class)
+@EntityListeners(AuditingEntityListener.class)  // revisar
 @Table(name = "Inmueble")
 public class InmuebleEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY) //aumenta el id de uno en uno
@@ -36,8 +36,8 @@ public class InmuebleEntity {
     //    @Size(max=100)
     private LocalDateTime createdDate;
 
-    @OneToMany(cascade = CascadeType.ALL) // para que cada cambio en el inmueble me actualice las escenas
-    @JoinColumn(name="inmueble_id")
+    @OneToMany(cascade = CascadeType.ALL , mappedBy = "inmuebleEntity") // para que cada cambio en el inmueble me actualice las escenas
+//    @JoinColumn(name="inmueble_id")
     private List<EscenaEntity> escenaEntityList;
 
     public InmuebleEntity(){
