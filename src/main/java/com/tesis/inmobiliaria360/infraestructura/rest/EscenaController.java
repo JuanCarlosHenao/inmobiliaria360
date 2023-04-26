@@ -1,8 +1,8 @@
 package com.tesis.inmobiliaria360.infraestructura.rest;
 
 
-import com.tesis.inmobiliaria360.dominio.service.EscenaService;
-import com.tesis.inmobiliaria360.infraestructura.output.entity.EscenaEntity;
+import com.tesis.inmobiliaria360.dominio.serviceImpl.EscenaService;
+import com.tesis.inmobiliaria360.infraestructura.entity.EscenaEntity;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 

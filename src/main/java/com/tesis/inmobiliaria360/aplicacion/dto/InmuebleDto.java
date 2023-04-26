@@ -1,4 +1,4 @@
-package com.tesis.inmobiliaria360.aplicacion;
+package com.tesis.inmobiliaria360.aplicacion.dto;
 
 import java.time.LocalDateTime;
 

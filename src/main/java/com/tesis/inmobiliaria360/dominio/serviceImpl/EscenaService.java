@@ -1,12 +1,10 @@
-package com.tesis.inmobiliaria360.dominio.service;
+package com.tesis.inmobiliaria360.dominio.serviceImpl;
 
 
-import com.tesis.inmobiliaria360.infraestructura.output.entity.EscenaEntity;
-import com.tesis.inmobiliaria360.infraestructura.output.entity.InmuebleEntity;
-import com.tesis.inmobiliaria360.infraestructura.output.repository.EscenaRepository;
+import com.tesis.inmobiliaria360.infraestructura.entity.EscenaEntity;
+import com.tesis.inmobiliaria360.infraestructura.repository.EscenaRepository;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 

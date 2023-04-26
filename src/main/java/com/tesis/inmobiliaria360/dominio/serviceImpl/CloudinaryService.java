@@ -1,4 +1,4 @@
-package com.tesis.inmobiliaria360.dominio.service;
+package com.tesis.inmobiliaria360.dominio.serviceImpl;
 
 import com.cloudinary.Cloudinary;
 import com.cloudinary.utils.ObjectUtils;

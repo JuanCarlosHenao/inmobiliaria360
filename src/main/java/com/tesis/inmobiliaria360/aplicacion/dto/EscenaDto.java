@@ -1,4 +1,4 @@
-package com.tesis.inmobiliaria360.aplicacion;
+package com.tesis.inmobiliaria360.aplicacion.dto;
 
 import com.tesis.inmobiliaria360.dominio.model.HotSpot;
 import lombok.Getter;

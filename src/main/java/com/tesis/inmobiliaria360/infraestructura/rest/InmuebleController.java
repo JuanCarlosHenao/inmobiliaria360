@@ -1,7 +1,7 @@
 package com.tesis.inmobiliaria360.infraestructura.rest;
 
-import com.tesis.inmobiliaria360.dominio.service.InmuebleService;
-import com.tesis.inmobiliaria360.infraestructura.output.entity.InmuebleEntity;
+import com.tesis.inmobiliaria360.dominio.serviceImpl.InmuebleService;
+import com.tesis.inmobiliaria360.infraestructura.entity.InmuebleEntity;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
