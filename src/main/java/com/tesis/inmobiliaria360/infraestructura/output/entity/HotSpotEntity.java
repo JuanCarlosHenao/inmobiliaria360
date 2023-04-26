@@ -13,8 +13,12 @@ public class HotSpotEntity {
     @Id
     @Column(name = "hotspot_id", nullable = false)
     private Long id;
+    @Column(name="name", nullable = false)
+    private String name ;
     @Column(name = "type",nullable = false)
     private String type;
+
+
     @Column(name = "pitch",nullable = false)
     private Double pitch;
     @Column(name = "yaw",nullable = false)
@@ -30,16 +34,16 @@ public class HotSpotEntity {
     private EscenaEntity escenaEntity;
 
 
-    public HotSpotEntity(Long id, String type, Double pitch, Double yaw, String cssClass, String nextScene, EscenaEntity escenaEntity) {
+    public HotSpotEntity(Long id, String name, String type, Double pitch, Double yaw, String cssClass, String nextScene) {
         this.id = id;
+        this.name = name;
         this.type = type;
         this.pitch = pitch;
         this.yaw = yaw;
         this.cssClass = cssClass;
         this.nextScene = nextScene;
-        this.escenaEntity = escenaEntity;
+//        this.escenaEntity = escenaEntity;
     }
-
 
     public Long getId() {
         return id;
@@ -95,5 +99,13 @@ public class HotSpotEntity {
 
     public void setEscenaEntity(EscenaEntity escenaEntity) {
         this.escenaEntity = escenaEntity;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }

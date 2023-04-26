@@ -12,11 +12,11 @@ import java.util.Optional;
 @Repository
 public interface EscenaRepository extends JpaRepository<EscenaEntity,Long> {
 
-    Optional<EscenaEntity> findById(Long id);
-    List<EscenaEntity> findAll();
-
-    EscenaEntity save (EscenaEntity escenaEntity);
-    //Buscar escenas x inmueble
+//    Optional<EscenaEntity> findById(Long id);
+//    List<EscenaEntity> findAll();
+//
+//    EscenaEntity save (EscenaEntity escenaEntity);
+//    //Buscar escenas x inmueble
 
 
 

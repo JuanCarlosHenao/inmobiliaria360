@@ -23,6 +23,7 @@ repositories {
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation group: 'org.mapstruct', name: 'mapstruct', version: '1.5.3.Final'
     implementation 'org.jetbrains:annotations:24.0.0'
 	implementation 'org.jetbrains:annotations:24.0.0'
 //	implementation group: 'com.cloudinary', name: 'cloudinary-core', version: '1.33.0'

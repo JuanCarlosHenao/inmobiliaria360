@@ -1,23 +1,28 @@
 package com.tesis.inmobiliaria360.dominio.model;
 
+import com.tesis.inmobiliaria360.infraestructura.output.entity.InmuebleEntity;
+
 import java.util.List;
 
 public class Escena {
     private Long id;
+
+    private Inmueble inmueble;
     private String title;
     private String image;
     private Double pitch;
     private Double yaw;
 
-    private List<HotSpot> hotSpotList;
+//    private List<HotSpot> hotSpotList;
 
-    public Escena(Long id, String title, String image, Double pitch, Double yaw, List<HotSpot> hotSpotList) {
+
+    public Escena(Long id, Inmueble inmueble, String title, String image, Double pitch, Double yaw) {
         this.id = id;
+        this.inmueble = inmueble;
         this.title = title;
         this.image = image;
         this.pitch = pitch;
         this.yaw = yaw;
-        this.hotSpotList = hotSpotList;  // mirar si esto si se lo paso o no
     }
 
     public Long getId() {
@@ -60,11 +65,20 @@ public class Escena {
         this.yaw = yaw;
     }
 
-    public List<HotSpot> getHotSpotList() {
-        return hotSpotList;
+//    public List<HotSpot> getHotSpotList() {
+//        return hotSpotList;
+//    }
+//
+//    public void setHotSpotList(List<HotSpot> hotSpotList) {
+//        this.hotSpotList = hotSpotList;
+//    }
+
+
+    public Inmueble getInmueble() {
+        return inmueble;
     }
 
-    public void setHotSpotList(List<HotSpot> hotSpotList) {
-        this.hotSpotList = hotSpotList;
+    public void setInmueble(Inmueble inmueble) {
+        this.inmueble = inmueble;
     }
 }

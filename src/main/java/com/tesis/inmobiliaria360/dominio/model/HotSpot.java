@@ -2,6 +2,7 @@ package com.tesis.inmobiliaria360.dominio.model;
 
 public class HotSpot {
     private Long id;
+    private String name ;
     private String type;
     private Double pitch;
     private Double yaw;
@@ -11,8 +12,9 @@ public class HotSpot {
     private String nextScene;
 
 
-    public HotSpot(Long id, String type, Double pitch, Double yaw, String cssClass, String nextScene) {
+    public HotSpot(Long id, String name, String type, Double pitch, Double yaw, String cssClass, String nextScene) {
         this.id = id;
+        this.name = name;
         this.type = type;
         this.pitch = pitch;
         this.yaw = yaw;
@@ -66,5 +68,13 @@ public class HotSpot {
 
     public void setNextScene(String nextScene) {
         this.nextScene = nextScene;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }
