@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 //@CrossOrigin(origins = "http://localhost:3000")
-//@RestController
-//@RequestMapping("/inmobiliaria360/inmueble/escena/hotspot")
+////@RestController
+////@RequestMapping("/inmobiliaria360/inmueble/escena/hotspot")
 public class HotSpotController {
 
     private final HotSpotHandler hotSpotHandler;  // preguntar si lo que traigo acá es la clase handler o la interfaz

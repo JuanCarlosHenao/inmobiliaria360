@@ -20,6 +20,8 @@ public class EscenaEntity {
 
 //    @ManyToOne(fetch = FetchType.LAZY)
 //    @ManyToOne(fetch = FetchType.LAZY)
+
+
     @ManyToOne
     @JoinColumn(name = "inmueble_id")//porque tengo muchas escenas para una propuedad
     private InmuebleEntity inmuebleEntity;

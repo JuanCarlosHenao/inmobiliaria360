@@ -9,12 +9,27 @@ import java.util.List;
 
 
 @Mapper(
-        componentModel = "spring",// que spring lo tome como un bean
-        unmappedTargetPolicy = ReportingPolicy.IGNORE,
-        unmappedSourcePolicy = ReportingPolicy.IGNORE)
+        componentModel = "spring"// que spring lo tome como un bean
+//        unmappedTargetPolicy = ReportingPolicy.IGNORE,
+//        unmappedSourcePolicy = ReportingPolicy.IGNORE
+)
 public interface IEscenaEntityMapper {
     EscenaEntity toEscenaEntity (Escena escena);
     Escena toEscena(EscenaEntity escenaEntity);
     List<Escena> toEscenaList(List<EscenaEntity> escenaEntityList);
+
+
+//    @Mappings({
+//            @Mapping(source = "id" , target = "id"),
+//            @Mapping(source = "title" , target = "name"),
+//            @Mapping(source = "image" , target = "price"),
+//            @Mapping(source = "pitch" , target = "description"),
+//            @Mapping(source = "yaw" , target = "createdDate"),
+//
+//    })
+//    Escena escenaEntityToEscenaDomain(EscenaEntity escenaEntity);
+//
+//    @InheritInverseConfiguration
+//    EscenaEntity escenaDomainToEscenaEntity(Escena escena);
 
 }

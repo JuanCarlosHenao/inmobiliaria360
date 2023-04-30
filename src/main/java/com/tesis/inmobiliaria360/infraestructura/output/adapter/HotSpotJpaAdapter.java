@@ -8,12 +8,15 @@ import com.tesis.inmobiliaria360.infraestructura.output.entity.HotSpotEntity;
 import com.tesis.inmobiliaria360.infraestructura.output.mapper.IHotSpotEntityMapper;
 import com.tesis.inmobiliaria360.infraestructura.output.repository.IHotSpotRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 
 @RequiredArgsConstructor
 public class HotSpotJpaAdapter implements IHotSpotPersistencePort { // INVERSION DE DEPENDENCIAS
+    @Autowired
     private final IHotSpotRepository hotSpotRepository;
+    @Autowired
     private final IHotSpotEntityMapper hotSpotEntityMapper;
     @Override
     public HotSpot saveHotSpot(HotSpot hotSpot) {

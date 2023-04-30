@@ -15,24 +15,24 @@ import java.util.List;
 public class InmuebleEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY) //aumenta el id de uno en uno
     @Id
-    @Column(name = "inmueble_id", nullable = false)
+    @Column(name = "inmueble_id", nullable = true)
     private Long id;
 
-    @Column(name = "name",nullable = false)
+    @Column(name = "name",nullable = true)
     //    @Size(max=100)
 //    @BatchSize(size = 100)
     private String name;
-    @Column(name = "price",nullable = false)
+    @Column(name = "price",nullable = true)
     //    @Size(max=100)
     private Double price;
-    @Column(name = "description",nullable = false)
+    @Column(name = "description",nullable = true)
     //    @Size(max=300)
     private String description;
-    @Column(name = "image",nullable = false)
+    @Column(name = "image",nullable = true)
     //    @Size(max=100)
     private String image;
     @CreatedDate
-    @Column(name = "createdDate",nullable = false)
+    @Column(name = "createdDate",nullable = true)
     //    @Size(max=100)
     private LocalDateTime createdDate;
 

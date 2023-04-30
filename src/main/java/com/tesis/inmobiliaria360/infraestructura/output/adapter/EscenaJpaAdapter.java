@@ -6,6 +6,7 @@ import com.tesis.inmobiliaria360.infraestructura.output.entity.EscenaEntity;
 import com.tesis.inmobiliaria360.infraestructura.output.mapper.IEscenaEntityMapper;
 import com.tesis.inmobiliaria360.infraestructura.output.repository.EscenaRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 
@@ -14,7 +15,10 @@ import java.util.List;
 
 @RequiredArgsConstructor
 public class EscenaJpaAdapter implements IEscenaPersistencePort {
+
+    @Autowired
     private final EscenaRepository escenaRepository;
+    @Autowired
     private final IEscenaEntityMapper escenaEntityMapper;
 
 
@@ -31,3 +35,19 @@ public class EscenaJpaAdapter implements IEscenaPersistencePort {
         return escenaEntityMapper.toEscenaList(escenaEntityList);
     }  // implmenta la interfaz del dominio
 }
+
+
+
+//    @Autowired
+//    InmuebleRepository inmuebleRepository;
+//    @Autowired
+//    InmuebleMapper inmuebleMapper;
+//    @Override
+//    public String saveInmueble(Inmueble inmueble) {
+//        try {
+//            inmuebleRepository.save(inmuebleMapper.inmuebleDomainToInmuebleEntity(inmueble));
+//        } catch (Exception e){
+//            return DomainConstants.RETURN_INMUEBLE_CREATED_ERROR;
+//        }
+//        return  DomainConstants.RETURN_INMUEBLE_CREATED;
+//    }

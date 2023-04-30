@@ -6,9 +6,12 @@ import com.tesis.inmobiliaria360.aplicacion.dto.response.EscenaResponseDto;
 import com.tesis.inmobiliaria360.aplicacion.handler.IEscenaHandler;
 //import com.tesis.inmobiliaria360.aplicacion.handler.impl.EscenaHandler;
 //import com.tesis.inmobiliaria360.dominio.service.EscenaService;
+import com.tesis.inmobiliaria360.aplicacion.handler.impl.EscenaHandler;
 import com.tesis.inmobiliaria360.dominio.service.EscenaService;
 import com.tesis.inmobiliaria360.infraestructura.output.entity.EscenaEntity;
+import com.tesis.inmobiliaria360.infraestructura.output.entity.InmuebleEntity;
 import org.apache.coyote.Response;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -16,19 +19,15 @@ import org.springframework.web.bind.annotation.*;
 import java.net.URI;
 import java.util.List;
 import java.util.Optional;
-
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("/inmobiliaria360/inmueble/escena")
 
 public class EscenaController {
 
-//    private final IEscenaHandler escenaHandler;
-//
-//    public EscenaController(IEscenaHandler escenaHandler) {
-//        this.escenaHandler = escenaHandler;
-//    }
 
-        private final EscenaService escenaService;
+
+    private final EscenaService escenaService;
 
     public EscenaController(EscenaService escenaService) {
         this.escenaService = escenaService;
@@ -41,11 +40,14 @@ public class EscenaController {
         return ResponseEntity.ok(escenaService.findAll()) ;
     }
 
-    @GetMapping("/escenas/{id}")
-    public ResponseEntity<Optional<EscenaEntity>> findById(@RequestParam(value = "id", defaultValue = "0") Long id){
+    @GetMapping("/escenaSola/{id}")
+    public ResponseEntity<Optional<EscenaEntity>> findByIdEscena(@PathVariable("id") Long id){
         return ResponseEntity.ok(escenaService.findById(id));
 
     }
+
+
+
 
     @PostMapping("/publicarEscena")
     public ResponseEntity<EscenaEntity> postInmueble (@RequestBody EscenaEntity escenaEntity){
@@ -53,6 +55,15 @@ public class EscenaController {
                 .body(escenaService.save(escenaEntity));
     }
 
+
+//    private final IEscenaHandler escenaHandler;  // preguntar si se trae la interfaz o la clase
+//
+//    public EscenaController(IEscenaHandler escenaHandler) {
+//        this.escenaHandler = escenaHandler;
+//    }
+//
+//
+//
 //    @GetMapping("/escenas")
 //    public ResponseEntity<List<EscenaResponseDto>> findAllEscenas(){
 //

@@ -25,6 +25,7 @@ public class EscenaService {
     }
 
     public List<EscenaEntity> findAll() {
+
         return escenaRepository.findAll();
     }
 

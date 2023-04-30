@@ -9,14 +9,15 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 import java.util.Optional;
 
-@Repository
+//@Repository
 public interface EscenaRepository extends JpaRepository<EscenaEntity,Long> {
 
-//    Optional<EscenaEntity> findById(Long id);
-//    List<EscenaEntity> findAll();
-//
-//    EscenaEntity save (EscenaEntity escenaEntity);
-//    //Buscar escenas x inmueble
+    Optional<EscenaEntity> findById(Long id);
+    List<EscenaEntity> findAll();
+
+    EscenaEntity save (EscenaEntity escenaEntity);
+    //Buscar escenas x inmueble
+
 
 
 
