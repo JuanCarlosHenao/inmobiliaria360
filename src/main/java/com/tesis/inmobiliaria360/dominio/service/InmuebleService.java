@@ -9,7 +9,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
-@Service
+//@Service
 public class InmuebleService {
 
     private final InmuebleRepository inmuebleRepository;
@@ -42,19 +42,19 @@ public class InmuebleService {
         return inmuebleRepository.findById(id);
     }
 
-    public InmuebleEntity save(InmuebleEntity inmuebleEntity){
-        InmuebleEntity inmuebleEntityAGuardar = new InmuebleEntity(
-                inmuebleEntity.getId(),
-                inmuebleEntity.getName(),
-                inmuebleEntity.getPrice(),
-                inmuebleEntity.getDescription(),
-                inmuebleEntity.getImage(),
-                LocalDateTime.now()
-//                inmuebleEntity.getEscenaEntityList()
-
-        );
-        return inmuebleRepository.save(inmuebleEntityAGuardar);
-    }
+//    public InmuebleEntity save(InmuebleEntity inmuebleEntity){
+//        InmuebleEntity inmuebleEntityAGuardar = new InmuebleEntity(
+//                inmuebleEntity.getId(),
+//                inmuebleEntity.getName(),
+//                inmuebleEntity.getPrice(),
+//                inmuebleEntity.getDescription(),
+//                inmuebleEntity.getImage(),
+//                LocalDateTime.now()
+////                inmuebleEntity.getEscenaEntityList()
+//
+//        );
+//        return inmuebleRepository.save(inmuebleEntityAGuardar);
+//    }
 
 
 }

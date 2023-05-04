@@ -16,9 +16,9 @@ import java.util.List;
 @RequiredArgsConstructor
 public class EscenaJpaAdapter implements IEscenaPersistencePort {
 
-    @Autowired
+//    @Autowired
     private final EscenaRepository escenaRepository;
-    @Autowired
+//    @Autowired
     private final IEscenaEntityMapper escenaEntityMapper;
 
 
@@ -34,6 +34,24 @@ public class EscenaJpaAdapter implements IEscenaPersistencePort {
         // añadir excepcion si no hay datos
         return escenaEntityMapper.toEscenaList(escenaEntityList);
     }  // implmenta la interfaz del dominio
+
+    @Override
+    public Escena getEscenaById(Long id) {
+        try {
+            return escenaEntityMapper.toEscena(escenaRepository.findById(id).get());
+        } catch (Exception e){
+        }
+        return null;
+    }
+
+    @Override
+    public List<Escena> getAllEscenasByInmuebleId(Long inmuebleId) {
+        try {
+            return escenaEntityMapper.toEscenaList(escenaRepository.findEscenaEntityByInmuebleId(inmuebleId));
+        } catch (Exception e){
+        }
+        return null;
+    }
 }
 
 

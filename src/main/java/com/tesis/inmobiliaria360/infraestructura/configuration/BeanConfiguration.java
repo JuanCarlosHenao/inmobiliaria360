@@ -17,30 +17,42 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-//@Configuration
-//@RequiredArgsConstructor
+@Configuration
+@RequiredArgsConstructor
 public class BeanConfiguration {
-//    @Autowired
-    private final EscenaRepository escenaRepository;
-//    @Autowired
-    private final IEscenaEntityMapper escenaEntityMapper;
 
-    public BeanConfiguration(EscenaRepository escenaRepository, IEscenaEntityMapper escenaEntityMapper) {
-        this.escenaRepository = escenaRepository;
-        this.escenaEntityMapper = escenaEntityMapper;
+    @Bean
+    public IEscenaPersistencePort escenaPersistencePort(EscenaRepository escenaRepository, IEscenaEntityMapper escenaEntityMapper){
+        return new EscenaJpaAdapter(escenaRepository,escenaEntityMapper);
     }
 
     @Bean
-    public IEscenaPersistencePort escenaPersistencePort(){
-        return new EscenaJpaAdapter(this.escenaRepository,this.escenaEntityMapper);
+    public IEscenaServicePort escenaServicePort(IEscenaPersistencePort escenaPersistencePort){
+        return new EscenaUseCase(escenaPersistencePort);
     }
 
-    @Bean
-    public IEscenaServicePort escenaServicePort(){
-
-        return new EscenaUseCase(this.escenaPersistencePort());
-    }
-
+// ----------------------------------------------------------------------------------------
+////    @Autowired
+//    private final EscenaRepository escenaRepository;
+////    @Autowired
+//    private final IEscenaEntityMapper escenaEntityMapper;
+//
+//    public BeanConfiguration(EscenaRepository escenaRepository, IEscenaEntityMapper escenaEntityMapper) {
+//        this.escenaRepository = escenaRepository;
+//        this.escenaEntityMapper = escenaEntityMapper;
+//    }
+//
+//    @Bean
+//    public IEscenaPersistencePort escenaPersistencePort(){
+//        return new EscenaJpaAdapter(this.escenaRepository,this.escenaEntityMapper);
+//    }
+//
+//    @Bean
+//    public IEscenaServicePort escenaServicePort(){
+//
+//        return new EscenaUseCase(this.escenaPersistencePort());
+//    }
+// ----------------------------------------------------------------------------------------
 //
 //    private final IHotSpotRepository hotSpotRepository;
 //    private final IHotSpotEntityMapper hotSpotEntityMapper;

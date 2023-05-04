@@ -9,6 +9,10 @@ public interface IEscenaPersistencePort {
     Escena saveEscena(Escena escena);
     List<Escena> getAllEscenas();
 
+    Escena getEscenaById(Long id);
+
+    List<Escena> getAllEscenasByInmuebleId(Long inmuebleId);
+
 
 //    String saveInmueble(Inmueble inmueble);
 //    String deleteInmueble(Inmueble inmueble);

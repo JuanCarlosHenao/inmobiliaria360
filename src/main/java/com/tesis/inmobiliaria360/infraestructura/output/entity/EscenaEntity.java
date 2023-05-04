@@ -24,7 +24,7 @@ public class EscenaEntity {
 
     @ManyToOne
     @JoinColumn(name = "inmueble_id")//porque tengo muchas escenas para una propuedad
-    private InmuebleEntity inmuebleEntity;
+    private InmuebleEntity inmueble;
     @Column(name= "title", nullable = false)
     private String title;
     @Column(name= "image", nullable = false)
@@ -49,9 +49,9 @@ public class EscenaEntity {
         super();
     }
 
-    public EscenaEntity(Long id, InmuebleEntity inmuebleEntity, String title, String image, Double pitch, Double yaw, List<HotSpotEntity> hotSpotEntityList) {
+    public EscenaEntity(Long id, InmuebleEntity inmueble, String title, String image, Double pitch, Double yaw, List<HotSpotEntity> hotSpotEntityList) {
         this.id = id;
-        this.inmuebleEntity = inmuebleEntity;
+        this.inmueble = inmueble;
         this.title = title;
         this.image = image;
         this.pitch = pitch;
@@ -67,14 +67,22 @@ public class EscenaEntity {
         this.id = id;
     }
 
-    @JsonBackReference
-    public InmuebleEntity getInmuebleEntity() {
-        return inmuebleEntity;
+//    @JsonBackReference
+//    public InmuebleEntity getInmuebleEntity() {
+//        return inmueble;
+//    }
+
+    public InmuebleEntity getInmueble() {
+        return inmueble;
     }
 
-    public void setInmuebleEntity(InmuebleEntity inmuebleEntity) {
-        this.inmuebleEntity = inmuebleEntity;
+    public void setInmueble(InmuebleEntity inmueble) {
+        this.inmueble = inmueble;
     }
+
+//    public void setInmuebleEntity(InmuebleEntity inmueble) {
+//        this.inmueble = inmueble;
+//    }
 
     public String getTitle() {
         return title;

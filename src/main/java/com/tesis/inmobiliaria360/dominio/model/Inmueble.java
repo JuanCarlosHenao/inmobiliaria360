@@ -1,6 +1,7 @@
 package com.tesis.inmobiliaria360.dominio.model;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 public class Inmueble {
     private Long id;
@@ -10,13 +11,16 @@ public class Inmueble {
     private String image;
     private LocalDateTime createdDate;
 
-    public Inmueble(Long id, String name, Double price, String description, String image, LocalDateTime createdDate) {
+    private List<Escena> escenaList;
+
+    public Inmueble(Long id, String name, Double price, String description, String image, LocalDateTime createdDate, List<Escena> escenaList) {
         this.id = id;
         this.name = name;
         this.price = price;
         this.description = description;
         this.image = image;
         this.createdDate = createdDate;
+        this.escenaList = escenaList;
     }
 
     public Long getId() {
@@ -26,6 +30,8 @@ public class Inmueble {
     public void setId(Long id) {
         this.id = id;
     }
+
+
 
     public String getName() {
         return name;
@@ -65,5 +71,14 @@ public class Inmueble {
 
     public void setCreatedDate(LocalDateTime createdDate) {
         this.createdDate = createdDate;
+    }
+
+
+    public List<Escena> getEscenaList() {
+        return escenaList;
+    }
+
+    public void setEscenaList(List<Escena> escenaList) {
+        this.escenaList = escenaList;
     }
 }

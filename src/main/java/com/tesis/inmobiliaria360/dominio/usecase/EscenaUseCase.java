@@ -24,4 +24,17 @@ public class EscenaUseCase implements IEscenaServicePort {
         return escenaPersistencePort.getAllEscenas();
     }
 
+    @Override
+    public Escena getEscenaById(Long id) {
+        if( id != null){
+            return escenaPersistencePort.getEscenaById(id);
+        }
+        return null;
+    }
+
+    @Override
+    public List<Escena> getAllEscenasByInmuebleId(Long inmuebleId) {
+        return escenaPersistencePort.getAllEscenasByInmuebleId(inmuebleId);
+    }
+
 }

@@ -11,4 +11,11 @@ public interface IEscenaHandler {
 
     void saveEscena(EscenaRequestDto escenaRequestDto);  //Esto podría ser saveEscenaDto
     List<EscenaResponseDto> getAllEscenas();
+
+    EscenaResponseDto getEscenaById(Long id);
+
+    List<EscenaResponseDto> getAllEscenasByInmuebleId(Long id);
+
+
+
 }

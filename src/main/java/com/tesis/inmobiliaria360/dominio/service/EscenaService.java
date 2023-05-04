@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
-@Service
+//@Service
 public class EscenaService {
 
     private final EscenaRepository escenaRepository;
@@ -32,7 +32,7 @@ public class EscenaService {
     public EscenaEntity save(EscenaEntity escenaEntity) {
         EscenaEntity escenaEntityAGuardar = new EscenaEntity(
                 escenaEntity.getId(),
-                escenaEntity.getInmuebleEntity(),
+                escenaEntity.getInmueble(),
                 escenaEntity.getImage(),
                 escenaEntity.getTitle(),
                 escenaEntity.getPitch(),

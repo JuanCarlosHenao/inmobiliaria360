@@ -9,6 +9,11 @@ public interface IEscenaServicePort {
     void saveEscena(Escena escena);
     List<Escena> getAllEscenas();
 
+    Escena getEscenaById(Long id);
+
+    List<Escena> getAllEscenasByInmuebleId(Long inmuebleId);
+
+
 //    String registrarInmueble (Inmueble inmueble);
 //    String eliminarInmueble (Inmueble inmueble);
 //    String actualizarInmueble(Inmueble inmueble);

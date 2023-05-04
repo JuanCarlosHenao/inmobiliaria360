@@ -1,10 +1,10 @@
 package com.tesis.inmobiliaria360.aplicacion.dto.response;
 
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
-@Getter
-@Setter
+@Data
 public class HotSpotResponseDto {
     private Long id;
     private String name ;

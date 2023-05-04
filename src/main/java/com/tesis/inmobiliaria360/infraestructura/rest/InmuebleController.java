@@ -1,7 +1,13 @@
 package com.tesis.inmobiliaria360.infraestructura.rest;
 
+import com.tesis.inmobiliaria360.aplicacion.dto.request.EscenaRequestDto;
+import com.tesis.inmobiliaria360.aplicacion.dto.request.InmuebleRequestDto;
+import com.tesis.inmobiliaria360.aplicacion.dto.response.EscenaResponseDto;
+import com.tesis.inmobiliaria360.aplicacion.dto.response.InmuebleResponseDto;
+import com.tesis.inmobiliaria360.aplicacion.handler.IInmuebleHandler;
 import com.tesis.inmobiliaria360.dominio.service.InmuebleService;
 import com.tesis.inmobiliaria360.infraestructura.output.entity.InmuebleEntity;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,28 +21,63 @@ import java.util.Optional;
 @RequestMapping("/inmobiliaria360")
 public class InmuebleController {
 
-    private final InmuebleService inmuebleService; // para la inyeción de dependencias
+    private final IInmuebleHandler iInmuebleHandler;
 
-    public InmuebleController(InmuebleService inmuebleService) {
-        this.inmuebleService = inmuebleService;
+    public InmuebleController(IInmuebleHandler iInmuebleHandler) {
+        this.iInmuebleHandler = iInmuebleHandler;
     }
 
+//    @GetMapping("/inmuebles")
+//    public ResponseEntity<List<InmuebleEntity>> findAllInmuebles(){
+//        return ResponseEntity.ok(iInmuebleHandler.findAll()) ;
+//    }
 
     @GetMapping("/inmuebles")
-    public ResponseEntity<List<InmuebleEntity>> findAllInmuebles(){
-        return ResponseEntity.ok(inmuebleService.findAll()) ;
+    public ResponseEntity<List<InmuebleResponseDto>> findAllInmuebles(){
+
+        return ResponseEntity.ok(iInmuebleHandler.getAllInmuebles()) ;
     }
 
-    @GetMapping("/inmueble/{id}")
-    public ResponseEntity<Optional<InmuebleEntity>> findById(@RequestParam(value = "id", defaultValue = "0") Long id){
-        return ResponseEntity.ok(inmuebleService.findById(id));
 
+    @GetMapping("/inmueble/{id}")
+    public InmuebleResponseDto getInmuebleById(@PathVariable("id") Long id){
+        return iInmuebleHandler.getInmuebleById(id);
     }
 
     @PostMapping("/publicarInmueble")
-    public ResponseEntity<InmuebleEntity> postInmueble (@RequestBody InmuebleEntity inmuebleEntity){
-        return ResponseEntity.created(URI.create("/inmobiliaria360/publicarInmueble"))  // cambia el http código de respuesta
-                .body(inmuebleService.save(inmuebleEntity));
+    public ResponseEntity<String> postInmueble (@RequestBody InmuebleRequestDto inmuebleRequestDto){
+//        return ResponseEntity.created(URI.create("/inmobiliaria360/publicarInmueble"))  // cambia el http código de respuesta
+//                .body(iInmuebleHandler.saveInmueble(inmuebleRequestDto));
+        iInmuebleHandler.saveInmueble(inmuebleRequestDto);
+        return new ResponseEntity<>(HttpStatus.CREATED);
     }
+
+
+
+
+
+//    private final InmuebleService inmuebleService; // para la inyeción de dependencias
+//
+//    public InmuebleController(InmuebleService inmuebleService) {
+//        this.inmuebleService = inmuebleService;
+//    }
+//
+//
+//    @GetMapping("/inmuebles")
+//    public ResponseEntity<List<InmuebleEntity>> findAllInmuebles(){
+//        return ResponseEntity.ok(inmuebleService.findAll()) ;
+//    }
+//
+//    @GetMapping("/inmueble/{id}")
+//    public ResponseEntity<Optional<InmuebleEntity>> findById(@RequestParam(value = "id", defaultValue = "0") Long id){
+//        return ResponseEntity.ok(inmuebleService.findById(id));
+//
+//    }
+//
+//    @PostMapping("/publicarInmueble")
+//    public ResponseEntity<InmuebleEntity> postInmueble (@RequestBody InmuebleEntity inmuebleEntity){
+//        return ResponseEntity.created(URI.create("/inmobiliaria360/publicarInmueble"))  // cambia el http código de respuesta
+//                .body(inmuebleService.save(inmuebleEntity));
+//    }
 
 }
