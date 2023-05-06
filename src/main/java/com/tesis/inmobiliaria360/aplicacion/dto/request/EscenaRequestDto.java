@@ -6,6 +6,8 @@ import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.List;
+
 @Data
 public class EscenaRequestDto {
     private Long inmueble_id;
@@ -13,4 +15,5 @@ public class EscenaRequestDto {
     private String image;
     private Double pitch;
     private Double yaw;
+    private List<HotSpotRequestDto> hotSpotRequestDtoList;
 }

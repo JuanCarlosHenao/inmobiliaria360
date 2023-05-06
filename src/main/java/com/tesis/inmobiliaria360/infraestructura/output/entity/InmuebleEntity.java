@@ -7,6 +7,7 @@ import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -14,7 +15,7 @@ import java.util.List;
 //@EntityListeners(AuditingEntityListener.class)  // revisar
 @Data
 @Table(name = "Inmueble")
-public class InmuebleEntity {
+public class InmuebleEntity implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY) //aumenta el id de uno en uno
     @Id
     @Column(name = "inmueble_id", nullable = false)

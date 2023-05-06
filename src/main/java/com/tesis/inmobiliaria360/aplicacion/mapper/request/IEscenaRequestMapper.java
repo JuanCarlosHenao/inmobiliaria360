@@ -16,12 +16,12 @@ import org.mapstruct.ReportingPolicy;
 @Mapper(componentModel = "spring")
 public interface IEscenaRequestMapper {
 
-    @Mappings({
-            @Mapping(source = "title" , target = "title"),
-            @Mapping(source = "image" , target = "image"),
-            @Mapping(source = "pitch" , target = "pitch"),
-            @Mapping(source = "yaw" , target = "yaw"),
-//            @Mapping(source = "hotSpotDtoRequestList" , target = "hotSpotList")
-    })
+//    @Mappings({
+//            @Mapping(source = "title" , target = "title"),
+//            @Mapping(source = "image" , target = "image"),
+//            @Mapping(source = "pitch" , target = "pitch"),
+//            @Mapping(source = "yaw" , target = "yaw"),
+//            @Mapping(source = "hotSpotRequestDtoList" , target = "hotSpotList")
+//    })
     Escena toEscena(EscenaRequestDto escenaRequestDto);
 }

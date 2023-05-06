@@ -13,16 +13,17 @@ public class Escena {
     private Double pitch;
     private Double yaw;
 
-//    private List<HotSpot> hotSpotList;
+    private List<HotSpot> hotSpotList;
 
 
-    public Escena(Long id, Inmueble inmueble, String title, String image, Double pitch, Double yaw) {
+    public Escena(Long id, Inmueble inmueble, String title, String image, Double pitch, Double yaw, List<HotSpot> hotSpotList) {
         this.id = id;
         this.inmueble = inmueble;
         this.title = title;
         this.image = image;
         this.pitch = pitch;
         this.yaw = yaw;
+        this.hotSpotList = hotSpotList;
     }
 
     public Long getId() {
@@ -65,13 +66,13 @@ public class Escena {
         this.yaw = yaw;
     }
 
-//    public List<HotSpot> getHotSpotList() {
-//        return hotSpotList;
-//    }
-//
-//    public void setHotSpotList(List<HotSpot> hotSpotList) {
-//        this.hotSpotList = hotSpotList;
-//    }
+    public List<HotSpot> getHotSpotList() {
+        return hotSpotList;
+    }
+
+    public void setHotSpotList(List<HotSpot> hotSpotList) {
+        this.hotSpotList = hotSpotList;
+    }
 
 
     public Inmueble getInmueble() {

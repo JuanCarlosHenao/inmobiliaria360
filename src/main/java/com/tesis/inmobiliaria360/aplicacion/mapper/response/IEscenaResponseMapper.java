@@ -18,14 +18,14 @@ import java.util.List;
 //        unmappedSourcePolicy = ReportingPolicy.IGNORE)
 @Mapper(componentModel = "spring")
 public interface IEscenaResponseMapper {
-    @Mappings({
-            @Mapping(source = "title" , target = "title"),
-            @Mapping(source = "image" , target = "image"),
-            @Mapping(source = "pitch" , target = "pitch"),
-            @Mapping(source = "yaw" , target = "yaw"),
-//            @Mapping(source = "inmueble" , target = "inmueble")
-//            @Mapping(source = "hotSpotDtoRequestList" , target = "hotSpotList")
-    })
+//    @Mappings({
+//            @Mapping(source = "title" , target = "title"),
+//            @Mapping(source = "image" , target = "image"),
+//            @Mapping(source = "pitch" , target = "pitch"),
+//            @Mapping(source = "yaw" , target = "yaw"),
+////            @Mapping(source = "inmueble" , target = "inmueble")
+//            @Mapping(source = "hotSpotList" , target = "hotSpotList")
+//    })
     EscenaResponseDto toEscenaDto(Escena escena);
     List<EscenaResponseDto> toEscenaResponseDtoList(List<Escena> escenaList);
 

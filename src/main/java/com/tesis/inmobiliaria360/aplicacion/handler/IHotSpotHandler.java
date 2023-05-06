@@ -8,7 +8,10 @@ import java.util.List;
 
 public interface IHotSpotHandler {
 
-    void saveHotSpot (HotSpotRequestDto hotSpotRequestDto);
+    HotSpotResponseDto saveHotSpot ( HotSpotRequestDto hotSpotRequestDto);
     List<HotSpotResponseDto> getAllHotSpots();
+
+    HotSpotResponseDto getHotSpotById(Long id);
+    List<HotSpotResponseDto> getAllHotSpotByEscenaId(Long escenaId);
 
 }

@@ -15,6 +15,6 @@ import java.util.List;
         unmappedTargetPolicy = ReportingPolicy.IGNORE,
         unmappedSourcePolicy = ReportingPolicy.IGNORE)
 public interface IHotSpotResponseMapper {
-    HotSpotResponseDto toHotSpotDto(HotSpot hotSpot);
+    HotSpotResponseDto toHotSpotResponseDto(HotSpot hotSpot);
     List<HotSpotResponseDto> toHotSpotResponseDtoList(List<HotSpot> hotSpotList);
 }

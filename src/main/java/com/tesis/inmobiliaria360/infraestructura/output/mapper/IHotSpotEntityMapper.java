@@ -14,7 +14,8 @@ import java.util.List;
         unmappedTargetPolicy = ReportingPolicy.IGNORE,
         unmappedSourcePolicy = ReportingPolicy.IGNORE)
 public interface IHotSpotEntityMapper {
-    HotSpotEntity toHotSpotEntity (HotSpot hotSpot);
-    HotSpot toHotSpot(HotSpotEntity hotSpotEntity);
-    List<HotSpot> toHotSpotList(List<HotSpotEntity> hotSpotEntityList);
+    HotSpotEntity hotSpotDomaintoHotSpotEntity (HotSpot hotSpot);
+    HotSpot hotSpotEntitytoHotSpotDomain(HotSpotEntity hotSpotEntity);
+    List<HotSpot> hotSpotEntityListtoHotSpotDomainList(List<HotSpotEntity> hotSpotEntityList);
+
 }

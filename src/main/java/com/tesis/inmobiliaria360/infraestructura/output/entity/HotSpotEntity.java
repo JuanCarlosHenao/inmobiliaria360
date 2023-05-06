@@ -3,11 +3,11 @@ package com.tesis.inmobiliaria360.infraestructura.output.entity;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
-@EntityListeners(AuditingEntityListener.class)
 @Table(name = "HotSpot")
-public class HotSpotEntity {
+public class HotSpotEntity implements Serializable {
 
     @GeneratedValue(strategy = GenerationType.IDENTITY) //aumenta el id de uno en uno
     @Id
@@ -30,11 +30,18 @@ public class HotSpotEntity {
     @Column(name = "nextScene",nullable = true)
     private String nextScene;
 
-    @ManyToOne(fetch = FetchType.LAZY)  //porque tengo muchas escenas para una propuedad
-    private EscenaEntity escenaEntity;
+//    @ManyToOne(fetch = FetchType.LAZY)  //porque tengo muchas escenas para una propuedad
+//    private EscenaEntity escenaEntity;
 
+    @ManyToOne
+    @JoinColumn(name = "escena_id")//porque tengo muchas escenas para una propuedad
+    private EscenaEntity escena;
 
-    public HotSpotEntity(Long id, String name, String type, Double pitch, Double yaw, String cssClass, String nextScene) {
+    public HotSpotEntity(){
+        super();
+    }
+
+    public HotSpotEntity(Long id, String name, String type, Double pitch, Double yaw, String cssClass, String nextScene, EscenaEntity escena) {
         this.id = id;
         this.name = name;
         this.type = type;
@@ -42,7 +49,7 @@ public class HotSpotEntity {
         this.yaw = yaw;
         this.cssClass = cssClass;
         this.nextScene = nextScene;
-//        this.escenaEntity = escenaEntity;
+        this.escena = escena;
     }
 
     public Long getId() {
@@ -93,19 +100,19 @@ public class HotSpotEntity {
         this.nextScene = nextScene;
     }
 
-    public EscenaEntity getEscenaEntity() {
-        return escenaEntity;
-    }
-
-    public void setEscenaEntity(EscenaEntity escenaEntity) {
-        this.escenaEntity = escenaEntity;
-    }
-
     public String getName() {
         return name;
     }
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public EscenaEntity getEscena() {
+        return escena;
+    }
+
+    public void setEscena(EscenaEntity escena) {
+        this.escena = escena;
     }
 }

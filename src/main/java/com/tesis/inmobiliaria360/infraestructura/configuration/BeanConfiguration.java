@@ -31,6 +31,18 @@ public class BeanConfiguration {
         return new EscenaUseCase(escenaPersistencePort);
     }
 
+
+    @Bean
+    public IHotSpotPersistencePort iHotSpotPersistencePort(IHotSpotRepository iHotSpotRepository , IHotSpotEntityMapper iHotSpotEntityMapper ){
+        return new HotSpotJpaAdapter(iHotSpotRepository,iHotSpotEntityMapper);
+    }
+
+    @Bean
+    public IHotSpotServicePort iHotSpotServicePort(IHotSpotPersistencePort iHotSpotPersistencePort){
+        return new HotSpotUseCase(iHotSpotPersistencePort);
+    }
+
+
 // ----------------------------------------------------------------------------------------
 ////    @Autowired
 //    private final EscenaRepository escenaRepository;

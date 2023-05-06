@@ -28,6 +28,11 @@ dependencies {
 	implementation 'org.jetbrains:annotations:24.0.0'
 //	implementation group: 'com.cloudinary', name: 'cloudinary-core', version: '1.33.0'
 	implementation group: 'com.cloudinary', name: 'cloudinary-http44', version: '1.33.0'
+//	// a dependency on Jackson Databind
+//	implementation 'com.fasterxml.jackson.core:jackson-databind:2.8.9'
+//
+//	// and a dependency on vert.x
+//	implementation 'io.vertx:vertx-core:3.5.3'
 	compileOnly 'org.projectlombok:lombok'
 	compileOnly 'org.mapstruct:mapstruct:1.5.3.Final' // OR use this with Java 8 and beyond: org.mapstruct:mapstruct-jdk8:...
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'

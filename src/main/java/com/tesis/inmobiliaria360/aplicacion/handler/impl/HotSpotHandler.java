@@ -2,37 +2,56 @@ package com.tesis.inmobiliaria360.aplicacion.handler.impl;
 
 
 import com.tesis.inmobiliaria360.aplicacion.dto.request.HotSpotRequestDto;
+import com.tesis.inmobiliaria360.aplicacion.dto.response.EscenaResponseDto;
 import com.tesis.inmobiliaria360.aplicacion.dto.response.HotSpotResponseDto;
+import com.tesis.inmobiliaria360.aplicacion.dto.response.InmuebleResponseDto;
+import com.tesis.inmobiliaria360.aplicacion.handler.IEscenaHandler;
 import com.tesis.inmobiliaria360.aplicacion.handler.IHotSpotHandler;
 import com.tesis.inmobiliaria360.aplicacion.mapper.request.IHotSpotRequestMapper;
 import com.tesis.inmobiliaria360.aplicacion.mapper.response.IHotSpotResponseMapper;
+import com.tesis.inmobiliaria360.dominio.api.IEscenaServicePort;
 import com.tesis.inmobiliaria360.dominio.api.IHotSpotServicePort;
+import com.tesis.inmobiliaria360.dominio.model.Escena;
 import com.tesis.inmobiliaria360.dominio.model.HotSpot;
+import com.tesis.inmobiliaria360.dominio.model.Inmueble;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
-//@RequiredArgsConstructor // porque requiere usar todas las interfaces
-//@Service // porque manipula y tiene lógica para los datos
+@Service // porque manipula y tiene lógica para los datos
+@RequiredArgsConstructor // porque requiere usar todas las interfaces
+
 //@Transactional  // para la parte transaccional de agregar las diferentes escenas
 public class HotSpotHandler implements IHotSpotHandler {
     private final IHotSpotServicePort hotSpotServicePort;
     private final IHotSpotRequestMapper hotSpotRequestMapper;
     private final IHotSpotResponseMapper hotSpotResponseMapper;
+    private final IEscenaServicePort iEscenaServicePort ;
 
-    public HotSpotHandler(IHotSpotServicePort hotSpotServicePort, IHotSpotRequestMapper hotSpotRequestMapper, IHotSpotResponseMapper hotSpotResponseMapper) {
-        this.hotSpotServicePort = hotSpotServicePort;
-        this.hotSpotRequestMapper = hotSpotRequestMapper;
-        this.hotSpotResponseMapper = hotSpotResponseMapper;
-    }
 
     @Override
-    public void saveHotSpot(HotSpotRequestDto hotSpotRequestDto) {
+    public HotSpotResponseDto saveHotSpot(HotSpotRequestDto hotSpotRequestDto) {
+        Escena escena =  iEscenaServicePort.getEscenaById(hotSpotRequestDto.getEscena_id());
         HotSpot hotSpot = hotSpotRequestMapper.toHotSpot(hotSpotRequestDto);
-        hotSpotServicePort.saveHotSpot(hotSpot);
+        hotSpot.setEscena(escena);
+        return hotSpotResponseMapper.toHotSpotResponseDto(hotSpotServicePort.saveHotSpot(hotSpot));
+
     }
 
     @Override
     public List<HotSpotResponseDto> getAllHotSpots() {
         return hotSpotResponseMapper.toHotSpotResponseDtoList(hotSpotServicePort.getAllHotSpots());
+    }
+
+    @Override
+    public HotSpotResponseDto getHotSpotById(Long id) {
+        return hotSpotResponseMapper.toHotSpotResponseDto(hotSpotServicePort.getHotSpotById(id));
+    }
+
+    @Override
+    public List<HotSpotResponseDto> getAllHotSpotByEscenaId(Long escenaId) {
+        return hotSpotResponseMapper.toHotSpotResponseDtoList(hotSpotServicePort.getAllHotSpotByEscenaId(escenaId));
     }
 }

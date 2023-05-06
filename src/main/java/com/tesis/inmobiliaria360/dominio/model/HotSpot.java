@@ -11,8 +11,10 @@ public class HotSpot {
 
     private String nextScene;
 
+    private Escena escena;
 
-    public HotSpot(Long id, String name, String type, Double pitch, Double yaw, String cssClass, String nextScene) {
+
+    public HotSpot(Long id, String name, String type, Double pitch, Double yaw, String cssClass, String nextScene, Escena escena) {
         this.id = id;
         this.name = name;
         this.type = type;
@@ -20,6 +22,7 @@ public class HotSpot {
         this.yaw = yaw;
         this.cssClass = cssClass;
         this.nextScene = nextScene;
+        this.escena = escena;
     }
 
     public Long getId() {
@@ -76,5 +79,13 @@ public class HotSpot {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Escena getEscena() {
+        return escena;
+    }
+
+    public void setEscena(Escena escena) {
+        this.escena = escena;
     }
 }

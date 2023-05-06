@@ -29,20 +29,20 @@ public class EscenaService {
         return escenaRepository.findAll();
     }
 
-    public EscenaEntity save(EscenaEntity escenaEntity) {
-        EscenaEntity escenaEntityAGuardar = new EscenaEntity(
-                escenaEntity.getId(),
-                escenaEntity.getInmueble(),
-                escenaEntity.getImage(),
-                escenaEntity.getTitle(),
-                escenaEntity.getPitch(),
-                escenaEntity.getYaw(),
-                null
-//                escenaEntity.getHotSpotEntityList()
-//                escenaEntity.getInmueble_id(),
+//    public EscenaEntity save(EscenaEntity escenaEntity) {
+//        EscenaEntity escenaEntityAGuardar = new EscenaEntity(
+//                escenaEntity.getId(),
+//                escenaEntity.getInmueble(),
+//                escenaEntity.getImage(),
+//                escenaEntity.getTitle(),
+//                escenaEntity.getPitch(),
+//                escenaEntity.getYaw(),
 //                null
-
-        );
-        return escenaRepository.save(escenaEntityAGuardar);
-    }
+////                escenaEntity.getHotSpotEntityList()
+////                escenaEntity.getInmueble_id(),
+////                null
+//
+//        );
+//        return escenaRepository.save(escenaEntityAGuardar);
+//    }
 }

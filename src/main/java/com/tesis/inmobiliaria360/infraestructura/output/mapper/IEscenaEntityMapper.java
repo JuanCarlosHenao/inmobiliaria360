@@ -25,7 +25,7 @@ public interface IEscenaEntityMapper {
             @Mapping(source = "image" , target = "image"),
             @Mapping(source = "pitch" , target = "pitch"),
             @Mapping(source = "yaw" , target = "yaw"),
-//            @Mapping(source = "hotSpotEntityList" , target = "hotSpotList")
+            @Mapping(source = "hotSpotList" , target = "hotSpotEntityList")
     })
     EscenaEntity toEscenaEntity (Escena escena);
     Escena toEscena(EscenaEntity escenaEntity);

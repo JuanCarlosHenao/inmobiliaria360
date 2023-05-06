@@ -13,13 +13,24 @@ public class HotSpotUseCase implements IHotSpotServicePort {
         this.hotSpotPersistencePort = hotSpotPersistencePort;
     }
 
+
     @Override
-    public void saveHotSpot(HotSpot hotSpot) {
-        hotSpotPersistencePort.saveHotSpot(hotSpot);
+    public HotSpot saveHotSpot(HotSpot hotSpot) {
+        return hotSpotPersistencePort.saveHotSpot(hotSpot);
     }
 
     @Override
     public List<HotSpot> getAllHotSpots() {
         return hotSpotPersistencePort.getAllHotSpots();
+    }
+
+    @Override
+    public HotSpot getHotSpotById(Long id) {
+        return hotSpotPersistencePort.getHotSpotById(id);
+    }
+
+    @Override
+    public List<HotSpot> getAllHotSpotByEscenaId(Long escenaId) {
+        return hotSpotPersistencePort.getAllHotSpotByEscenaId(escenaId);
     }
 }

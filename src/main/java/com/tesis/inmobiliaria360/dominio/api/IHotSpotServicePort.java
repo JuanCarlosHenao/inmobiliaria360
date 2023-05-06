@@ -5,7 +5,9 @@ import com.tesis.inmobiliaria360.dominio.model.HotSpot;
 import java.util.List;
 
 public interface IHotSpotServicePort {
-    void saveHotSpot (HotSpot hotSpot);
+    HotSpot saveHotSpot ( HotSpot hotSpot);
     List<HotSpot> getAllHotSpots();
 
+    HotSpot getHotSpotById(Long id);
+    List<HotSpot> getAllHotSpotByEscenaId(Long escenaId);
 }
