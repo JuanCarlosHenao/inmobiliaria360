@@ -81,4 +81,11 @@ public class EscenaController {
         escenaHandler.saveEscena(escenaRequestDto);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
+
+    @GetMapping("/escenasByInmueble/{inmueble_id}")
+    public ResponseEntity<List<EscenaResponseDto>> findAllEscenasByInmuebleid(@PathVariable("inmueble_id") Long inmueble_id){
+
+        return ResponseEntity.ok(escenaHandler.getAllEscenasByInmuebleId(inmueble_id)) ;
+    }
+
 }
