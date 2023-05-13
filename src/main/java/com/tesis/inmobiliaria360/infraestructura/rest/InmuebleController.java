@@ -53,6 +53,13 @@ public class InmuebleController {
     }
 
 
+    @PutMapping("/actualizarInmueble/{id}")
+    public  ResponseEntity<String> putInmueble (@PathVariable("id") Long id,@RequestBody InmuebleRequestDto inmuebleRequestDto){
+        iInmuebleHandler.updateInmueble(id,inmuebleRequestDto);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+
 
 
 

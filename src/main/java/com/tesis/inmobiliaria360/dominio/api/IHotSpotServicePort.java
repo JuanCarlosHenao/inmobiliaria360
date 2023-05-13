@@ -10,4 +10,6 @@ public interface IHotSpotServicePort {
 
     HotSpot getHotSpotById(Long id);
     List<HotSpot> getAllHotSpotByEscenaId(Long escenaId);
+
+    void updateHotSpot(HotSpot hotSpot);
 }

@@ -54,4 +54,24 @@ public class HotSpotHandler implements IHotSpotHandler {
     public List<HotSpotResponseDto> getAllHotSpotByEscenaId(Long escenaId) {
         return hotSpotResponseMapper.toHotSpotResponseDtoList(hotSpotServicePort.getAllHotSpotByEscenaId(escenaId));
     }
+
+    @Override
+    public void updateHotSpot(Long id, HotSpotRequestDto hotSpotRequestDto) {
+
+        HotSpotResponseDto hotSpotAActualizar = getHotSpotById(id);
+        Escena escena =  iEscenaServicePort.getEscenaById(hotSpotRequestDto.getEscena_id());
+        hotSpotAActualizar.setName(hotSpotRequestDto.getName());
+        hotSpotAActualizar.setType(hotSpotRequestDto.getType());
+        hotSpotAActualizar.setPitch(hotSpotRequestDto.getPitch());
+        hotSpotAActualizar.setYaw(hotSpotRequestDto.getYaw());
+        hotSpotAActualizar.setCssClass(hotSpotRequestDto.getCssClass());
+        hotSpotAActualizar.setNextScene(hotSpotRequestDto.getNextScene());
+
+        HotSpot hotSpot = hotSpotResponseMapper.hotSpotResponseDtoToHotSpotDomain(hotSpotAActualizar);
+        hotSpot.setEscena(escena);
+        hotSpotServicePort.updateHotSpot(hotSpot);
+
+
+
+    }
 }

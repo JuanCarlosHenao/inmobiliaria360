@@ -17,4 +17,6 @@ import java.util.List;
 public interface IHotSpotResponseMapper {
     HotSpotResponseDto toHotSpotResponseDto(HotSpot hotSpot);
     List<HotSpotResponseDto> toHotSpotResponseDtoList(List<HotSpot> hotSpotList);
+
+    HotSpot hotSpotResponseDtoToHotSpotDomain(HotSpotResponseDto hotSpotResponseDto);
 }

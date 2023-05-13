@@ -1,6 +1,7 @@
 package com.tesis.inmobiliaria360.infraestructura.rest;
 
 
+import com.tesis.inmobiliaria360.aplicacion.dto.request.EscenaRequestDto;
 import com.tesis.inmobiliaria360.aplicacion.dto.request.HotSpotRequestDto;
 import com.tesis.inmobiliaria360.aplicacion.dto.response.EscenaResponseDto;
 import com.tesis.inmobiliaria360.aplicacion.dto.response.HotSpotResponseDto;
@@ -31,7 +32,7 @@ public class HotSpotController {
 
     @GetMapping("/hotSpot/{id}")
     public HotSpotResponseDto getEscenaById(@PathVariable("id") Long id){
-        return iHotSpotHandler.getHotSpotById(id);
+        return iHotSpotHandler.getHotSpotById(id);  // organizar para traer un ResponseEntity
     }
 
     @PostMapping("/savehotspot")
@@ -39,4 +40,12 @@ public class HotSpotController {
         iHotSpotHandler.saveHotSpot(hotSpotRequestDto);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
+
+    @PutMapping("/updateHotSpot/{id}")
+    public ResponseEntity<HotSpotResponseDto> updateHotSpot (@PathVariable("id") Long id,@RequestBody HotSpotRequestDto hotSpotRequestDto){
+        iHotSpotHandler.updateHotSpot(id,hotSpotRequestDto);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
 }
+
+

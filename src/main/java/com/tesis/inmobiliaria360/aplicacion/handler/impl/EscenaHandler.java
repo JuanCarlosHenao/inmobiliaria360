@@ -81,5 +81,21 @@ public class EscenaHandler implements IEscenaHandler {
 
     }
 
+    @Override
+    public void updateEscena(Long id, EscenaRequestDto escenaRequestDto) {
+        EscenaResponseDto escenaAActualizar = getEscenaById(id);
+        Inmueble inmueble = iInmuebleServicePort.obtenerInmueble(escenaRequestDto.getInmueble_id());
+        escenaAActualizar.setTitle(escenaRequestDto.getTitle());
+        escenaAActualizar.setImage(escenaRequestDto.getImage());
+        escenaAActualizar.setPitch(escenaRequestDto.getPitch());
+        escenaAActualizar.setYaw(escenaRequestDto.getYaw());
+//        escenaAActualizar.setHotSpotResponseDtoList(escenaRequestDto.getHotSpotRequestDtoList());
+        Escena escena = escenaResponseMapper.escenaResponseDTOToEscenaDomain(escenaAActualizar);
+        escena.setInmueble(inmueble);
+        escenaServicePort.updateEscena(escena);
+
+
+    }
+
 
 }

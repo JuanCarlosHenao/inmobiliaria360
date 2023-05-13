@@ -28,6 +28,7 @@ public interface IInmuebleMapper {
     InmuebleResponseDto inmuebleDomainToInmuebleDtoResponse(Inmueble inmueble);
 
     List<InmuebleResponseDto> inmuebleDomainListToInmuebleDtoResponseList(List<Inmueble> inmuebleList);
+    Inmueble inmuebleResponseDtotoInmuebleDomain(InmuebleResponseDto inmuebleResponseDto);
 
 
 }

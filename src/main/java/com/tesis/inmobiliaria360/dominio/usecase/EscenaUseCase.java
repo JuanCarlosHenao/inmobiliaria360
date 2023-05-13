@@ -16,7 +16,8 @@ public class EscenaUseCase implements IEscenaServicePort {
 
     @Override
     public void saveEscena(Escena escena) {
-         escenaPersistencePort.saveEscena(escena);
+
+        escenaPersistencePort.saveEscena(escena);
     }
 
     @Override
@@ -36,5 +37,11 @@ public class EscenaUseCase implements IEscenaServicePort {
     public List<Escena> getAllEscenasByInmuebleId(Long inmuebleId) {
         return escenaPersistencePort.getAllEscenasByInmuebleId(inmuebleId);
     }
+
+    @Override
+    public void updateEscena(Escena escena) {
+        escenaPersistencePort.updateEscena(escena);
+    }
+
 
 }

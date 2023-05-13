@@ -8,8 +8,9 @@ import java.util.List;
 public interface IInmuebleHandler {
     String saveInmueble(InmuebleRequestDto inmuebleDtoRequest);
     String deleteInmueble(InmuebleRequestDto inmuebleDtoRequest);
-    String updateInmueble(InmuebleRequestDto inmuebleDtoRequest);
+    String updateInmueble(Long id,InmuebleRequestDto inmuebleDtoRequest);
     InmuebleResponseDto getInmuebleById(Long id);
 
     List<InmuebleResponseDto> getAllInmuebles();
+
 }

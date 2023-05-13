@@ -2,6 +2,7 @@ package com.tesis.inmobiliaria360.infraestructura.rest;
 
 
 import com.tesis.inmobiliaria360.aplicacion.dto.request.EscenaRequestDto;
+import com.tesis.inmobiliaria360.aplicacion.dto.request.InmuebleRequestDto;
 import com.tesis.inmobiliaria360.aplicacion.dto.response.EscenaResponseDto;
 import com.tesis.inmobiliaria360.aplicacion.dto.response.InmuebleResponseDto;
 import com.tesis.inmobiliaria360.aplicacion.handler.IEscenaHandler;
@@ -88,4 +89,9 @@ public class EscenaController {
         return ResponseEntity.ok(escenaHandler.getAllEscenasByInmuebleId(inmueble_id)) ;
     }
 
+    @PutMapping("/actualizarEscena/{id}")
+    public  ResponseEntity<EscenaResponseDto> updateEscena (@PathVariable("id") Long id,@RequestBody EscenaRequestDto escenaRequestDto){
+        escenaHandler.updateEscena(id,escenaRequestDto);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
 }

@@ -52,6 +52,13 @@ public class EscenaJpaAdapter implements IEscenaPersistencePort {
         }
         return null;
     }
+
+    @Override
+    public Escena updateEscena(Escena escena) {
+
+        EscenaEntity escenaEntity =escenaRepository.save(escenaEntityMapper.toEscenaEntity(escena));
+        return escenaEntityMapper.toEscena(escenaEntity);
+    }
 }
 
 

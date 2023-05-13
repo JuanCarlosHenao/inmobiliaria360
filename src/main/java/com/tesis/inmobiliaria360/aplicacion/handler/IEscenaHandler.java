@@ -16,6 +16,8 @@ public interface IEscenaHandler {
 
     List<EscenaResponseDto> getAllEscenasByInmuebleId(Long id);
 
+    void updateEscena (Long id, EscenaRequestDto escenaRequestDto);
+
 
 
 }

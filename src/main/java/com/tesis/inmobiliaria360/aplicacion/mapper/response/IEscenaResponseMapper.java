@@ -29,5 +29,7 @@ public interface IEscenaResponseMapper {
     EscenaResponseDto toEscenaDto(Escena escena);
     List<EscenaResponseDto> toEscenaResponseDtoList(List<Escena> escenaList);
 
+    Escena escenaResponseDTOToEscenaDomain(EscenaResponseDto escenaResponseDto);
+
     EscenaEntity escenaDomainToEscenaEntity(Escena escena);
 }

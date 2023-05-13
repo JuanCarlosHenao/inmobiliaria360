@@ -50,4 +50,10 @@ public class HotSpotJpaAdapter implements IHotSpotPersistencePort { // INVERSION
         }
         return null;
     }
+
+    @Override
+    public void updateHotSpot(HotSpot hotSpot) {
+        HotSpotEntity hotSpotEntity =hotSpotRepository.save(hotSpotEntityMapper.hotSpotDomaintoHotSpotEntity(hotSpot));
+        hotSpotEntityMapper.hotSpotEntitytoHotSpotDomain(hotSpotEntity);
+    }
 }

@@ -50,9 +50,18 @@ public class InmuebleHandler implements IInmuebleHandler {
     }
 
     @Override
-    public String updateInmueble(InmuebleRequestDto inmuebleRequestDto) {
+    public String updateInmueble(Long id,InmuebleRequestDto inmuebleRequestDto) {
+        InmuebleResponseDto inmuebleActualizar = getInmuebleById(id);
+        inmuebleActualizar.setName(inmuebleRequestDto.getName());
+        inmuebleActualizar.setPrice(inmuebleRequestDto.getPrice());
+        inmuebleActualizar.setDescription(inmuebleRequestDto.getDescription());
+        inmuebleActualizar.setImage(inmuebleRequestDto.getImage());
+//        inmuebleActualizar.setEscenaResponseDtoList(inmuebleRequestDto.getEscenaRequestDtoList());
+
+
         return iInmuebleServicePort.actualizarInmueble(
-                iInmuebleMapper.inmuebleDtoRequestToInmuebleDomain(inmuebleRequestDto)
+//                iInmuebleMapper.inmuebleDtoRequestToInmuebleDomain(inmuebleRequestDto)
+                iInmuebleMapper.inmuebleResponseDtotoInmuebleDomain(inmuebleActualizar)
         );
     }
 

@@ -14,4 +14,6 @@ public interface IHotSpotHandler {
     HotSpotResponseDto getHotSpotById(Long id);
     List<HotSpotResponseDto> getAllHotSpotByEscenaId(Long escenaId);
 
+    void updateHotSpot(Long id, HotSpotRequestDto hotSpotRequestDto);
+
 }
