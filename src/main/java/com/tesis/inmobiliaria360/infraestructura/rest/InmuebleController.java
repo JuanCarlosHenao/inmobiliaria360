@@ -46,8 +46,6 @@ public class InmuebleController {
 
     @PostMapping("/publicarInmueble")
     public ResponseEntity<String> postInmueble (@RequestBody InmuebleRequestDto inmuebleRequestDto){
-//        return ResponseEntity.created(URI.create("/inmobiliaria360/publicarInmueble"))  // cambia el http código de respuesta
-//                .body(iInmuebleHandler.saveInmueble(inmuebleRequestDto));
         iInmuebleHandler.saveInmueble(inmuebleRequestDto);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }

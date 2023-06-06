@@ -37,11 +37,6 @@ public class BeanAplicationConfig {
         return new EscenaHandler(iInmuebleServicePort,escenaServicePort,escenaRequestMapper,escenaResponseMapper,iHotSpotHandler);
     }
 
-
-//    @Bean
-//    IInmuebleHandler iHandlerInmueble (IInmuebleServicePort iInmuebleServicePort , IInmuebleMapper iInmuebleMapper){
-//        return new InmuebleHandler(iInmuebleServicePort,iInmuebleMapper);
-//    }
     @Bean
     public IInmueblePersistencePort inmueblePersistencePort(InmuebleRepository inmuebleRepository , IInmuebleEntityMapper iInmuebleEntityMapper){
         return new InmuebleJpaAdapter(inmuebleRepository,iInmuebleEntityMapper);
@@ -50,17 +45,11 @@ public class BeanAplicationConfig {
     public IInmuebleServicePort inmuebleServicePort(IInmueblePersistencePort iInmueblePersistencePort){
         return new InmuebleUseCase(iInmueblePersistencePort);
     }
-
-
     @Bean
     public IHotSpotHandler iHotSpotHandler(IHotSpotServicePort hotSpotServicePort,
     IHotSpotRequestMapper hotSpotRequestMapper,
     IHotSpotResponseMapper hotSpotResponseMapper, IEscenaServicePort iEscenaServicePort){
         return  new HotSpotHandler(hotSpotServicePort,hotSpotRequestMapper,hotSpotResponseMapper,iEscenaServicePort);
     }
-
-
-
-
 
 }

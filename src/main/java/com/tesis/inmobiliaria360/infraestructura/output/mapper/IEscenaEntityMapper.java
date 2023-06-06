@@ -9,12 +9,6 @@ import org.mapstruct.ReportingPolicy;
 
 import java.util.List;
 
-
-//@Mapper(
-//        componentModel = "spring",// que spring lo tome como un bean
-//        unmappedTargetPolicy = ReportingPolicy.IGNORE,
-//        unmappedSourcePolicy = ReportingPolicy.IGNORE
-//)
 @Mapper(componentModel = "spring")
 public interface IEscenaEntityMapper {
 

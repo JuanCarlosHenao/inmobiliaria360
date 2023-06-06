@@ -16,8 +16,4 @@ public interface IEscenaPersistencePort {
     Escena updateEscena(Escena escena);
 
 
-//    String saveInmueble(Inmueble inmueble);
-//    String deleteInmueble(Inmueble inmueble);
-//    String updateInmueble(Inmueble inmueble);
-//    Inmueble getInmueble(Long id);
 }

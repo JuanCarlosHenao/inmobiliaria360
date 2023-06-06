@@ -74,7 +74,6 @@ public class Escena {
         this.hotSpotList = hotSpotList;
     }
 
-
     public Inmueble getInmueble() {
         return inmueble;
     }

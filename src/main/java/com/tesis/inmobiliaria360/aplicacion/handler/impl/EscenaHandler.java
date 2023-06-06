@@ -30,11 +30,6 @@ public class EscenaHandler implements IEscenaHandler {
     private final IEscenaResponseMapper escenaResponseMapper;
     private final IHotSpotHandler iHotSpotHandler;
 
-//    public EscenaHandler(IEscenaServicePort escenaServicePort, IEscenaRequestMapper escenaRequestMapper, IEscenaResponseMapper escenaResponseMapper) {
-//        this.escenaServicePort = escenaServicePort;
-//        this.escenaRequestMapper = escenaRequestMapper;
-//        this.escenaResponseMapper = escenaResponseMapper;
-//    }
 
     @Override
     public void saveEscena(EscenaRequestDto escenaRequestDto) {
@@ -46,7 +41,6 @@ public class EscenaHandler implements IEscenaHandler {
 
     @Override
     public List<EscenaResponseDto> getAllEscenas() {
-//        return escenaResponseMapper.toEscenaResponseDtoList(escenaServicePort.getAllEscenas()) ;
 
 
         List<HotSpotResponseDto> hotSpotResponseDtoList = new ArrayList<>();

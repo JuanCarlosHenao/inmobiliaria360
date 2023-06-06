@@ -15,10 +15,4 @@ public interface IEscenaServicePort {
 
     void updateEscena(Escena escena);
 
-
-//    String registrarInmueble (Inmueble inmueble);
-//    String eliminarInmueble (Inmueble inmueble);
-//    String actualizarInmueble(Inmueble inmueble);
-//    Inmueble obtenerInmueble (Long id);
-
 }
